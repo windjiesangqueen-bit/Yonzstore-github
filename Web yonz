@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>YONZ STORE</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #007BFF, #00AEEF);
+      margin: 0;
+      padding: 0;
+      color: white;
+      text-align: center;
+    }
+    header {
+      padding: 40px 20px 20px;
+    }
+    header h1 {
+      font-size: 2em;
+      font-weight: bold;
+      margin: 0;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 15px;
+    }
+    .container a, .container button {
+      text-decoration: none;
+      background: white;
+      color: #007BFF;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-weight: bold;
+      min-width: 180px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    .container a:hover, .container button:hover {
+      background: #007BFF;
+      color: white;
+      transform: scale(1.05);
+    }
+    /* Halaman Payment */
+    #paymentPage {
+      display: none;
+      padding: 20px;
+    }
+    .payment-box {
+      background: white;
+      color: #333;
+      margin: 15px auto;
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 400px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    .payment-box h3 {
+      margin: 0 0 10px;
+    }
+    .copy-btn {
+      margin-top: 10px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .copy-btn:hover {
+      background: #0056b3;
+    }
+    .back-btn {
+      margin-top: 20px;
+      background: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .back-btn:hover {
+      background: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>YONZ STORE</h1>
+  </header>
+
+  <!-- Halaman utama -->
+  <div class="container" id="mainPage">
+    <a href="https://t.me//Yonzaeelah" target="_blank">TELEGRAM</a>
+    <a href="https://www.tiktok.com/@yonz___cihuy?_t=ZS-8zHY2y6lXNA&_r=1" target="_blank">TIKTOK</a>
+    <button onclick="openPayment()">PAYMENT BANK</button>
+    <a href="https://t.me//Yonzaeelah" target="_blank">PANEL BOT</a>
+    <a href="https://t.me//Yonzaeelah" target="_blank">JASA EDIT</a>
+    <a href="https://t.me//Yonzaeelah" target="_blank">SEWA BOT GRUP</a>
+    <a href="https://t.me//Yonzaeelah" target="_blank">SEWA BOT BUG</a>
+    <a href="https://whatsapp.com/channel/0029VbBRnOD9hXEzoVYjpe3N" target="_blank">CHANNEL INFORMATION</a>
+    <button onclick="toggleMusic()">▶ PLAY MUSIK</button>
+  </div>
+
+  <!-- Halaman Payment -->
+  <div id="paymentPage">
+    <h2>PAYMENT BANK</h2>
+
+    <div class="payment-box">
+      <h3>DANA</h3>
+      <p>6285361384443</p>
+      <button class="copy-btn" onclick="copyText('6285361384443')">SALIN</button>
+    </div>
+
+    <div class="payment-box">
+      <h3>GOPAY</h3>
+      <p>6285361384443</p>
+      <button class="copy-btn" onclick="copyText('6285361384443')">SALIN</button>
+    </div>
+
+    <button class="back-btn" onclick="goBack()">⬅ Kembali</button>
+  </div>
+
+  <!-- Pemutar Musik -->
+  <audio id="bgMusic" src="download (8).mp3"></audio>
+
+  <script>
+    function openPayment() {
+      document.getElementById('mainPage').style.display = 'none';
+      document.getElementById('paymentPage').style.display = 'block';
+    }
+    function goBack() {
+      document.getElementById('paymentPage').style.display = 'none';
+      document.getElementById('mainPage').style.display = 'flex';
+    }
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor " + text + " berhasil disalin ✅");
+      });
+    }
+    // Musik
+    let isPlaying = false;
+    const music = document.getElementById("bgMusic");
+    const playBtn = document.querySelector("button[onclick='toggleMusic()']");
+
+    function toggleMusic() {
+      if (isPlaying) {
+        music.pause();
+        playBtn.textContent = "▶ PLAY MUSIK";
+      } else {
+        music.play();
+        playBtn.textContent = "⏸ STOP MUSIK";
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
+</body>
+</html>
